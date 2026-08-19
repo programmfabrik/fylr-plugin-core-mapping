@@ -1,0 +1,11 @@
+key,de-DE,en-US
+plugin.name,Core-Mapping,Core-Mapping
+plugin.info,Liefert ein konfigurierbares JSON-Mapping über eine API-Erweiterung.,Provides a configurable JSON mapping via an API extension.
+server.config.name.system.core_mapping,Einstellungen,Configurations
+server.config.parameter.system.core_mapping.mappings.enabled.label,Core-Mapping aktivieren,Enable Core Mapping
+server.config.parameter.system.core_mapping.mappings.enabled.checkbox,Aktivieren,Enable
+server.config.parameter.system.core_mapping.mappings.mapping_json.label,Mapping JSON,Mapping JSON
+server.config.parameter.system.core_mapping.mappings.label,Mapping konfigurieren,Configure Mapping
+server.config.parameter.system.core_mapping.mappings.mapping_name.label,Name des Mappings,Name of the mapping
+server.config.parameter.system.core_mapping.mappings.mapping_description.label,Beschreibung des Mappings,Description of the mapping
+server.config.parameter.system.core_mapping.mappings.mapping_json.label,Mapping JSON,Mapping JSON

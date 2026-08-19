@@ -1,0 +1,63 @@
+plugin:
+  name: core-mapping
+  version: 1.0
+  l10n: l10n/core-mapping.csv
+  url: https://github.com/programmfabrik/fylr-plugin-core-mapping
+  displayname:
+    de-DE: Core-Mapping
+    en-US: Core Mapping
+  info:
+    de-DE: Liefert ein konfigurierbares JSON-Mapping über eine API-Erweiterung.
+    en-US: Provides a configurable JSON mapping via an API extension.
+  server:
+    api-version:
+      require: 1
+      
+base_url_prefix: "webfrontend"
+
+base_config:
+  - name: core_mapping
+    group: core_mapping
+    parameters:
+      mappings:
+        type: table
+        position: 0
+        fields:
+          - name: mapping_name
+            type: text
+            position: 0
+          - name: mapping_description
+            type: text
+            position: 1
+          - name: enabled
+            type: bool
+            position: 2
+            default: true
+          - name: mapping_json
+            type: json
+            position: 3
+
+extensions:
+  core_mapping:
+    plugin_user:
+      base_config: "core_mapping.root_api_user"
+    exec:
+      service: "node"
+      commands:
+        - prog: "node"
+          stdin:
+            type: "body"
+          stdout:
+            type: "body"
+          args:
+            - type: "value"
+              value: "%_exec.pluginDir%/server/extension/core-mapping.js"
+            - type: "value"
+              value: "%info.json%"
+
+system_rights:
+  - name: core_mapping
+    comment: Provides the core mapping API extension
+    parameters:
+      - name: use_core_mapping_extension
+        type: bool
